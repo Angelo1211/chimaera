@@ -211,7 +211,7 @@ void main(){
 
     if(slices)
     {
-        FragColor = vec4(colors[uint(float(zTile) - floor(float(zTile) / 8.0) * 8.0)], 1.0);
+        FragColor = vec4(colors[uint(mod(float(zTile), 8.0))], 1.0);
     }
     else{
         FragColor = vec4(radianceOut, 1.0);
