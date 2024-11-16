@@ -394,8 +394,8 @@ void Scene::loadSceneModels(const json &sceneConfigJson ){
     for (unsigned int i = 0; i < modelCount; ++i){
         //get model mesh and material info
         json currentModel = sceneConfigJson["models"][i];
-        modelMesh = currentModel["mesh"];
-        IBL       = currentModel["IBL"];
+        modelMesh = currentModel["mesh"].get<std::string>();
+        IBL       = currentModel["IBL"].get<bool>();
 
         modelName = modelMesh.substr(0, modelMesh.find_last_of('.'));
 

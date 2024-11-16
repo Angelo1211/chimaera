@@ -209,8 +209,9 @@ void main(){
     //Adding any emissive if there is an assigned map
     radianceOut += emissive;
 
-    if(slices){
-        FragColor = vec4(colors[uint(mod(zTile, 8.0))], 1.0);
+    if(slices)
+    {
+        FragColor = vec4(colors[uint(float(zTile) - floor(float(zTile) / 8.0) * 8.0)], 1.0);
     }
     else{
         FragColor = vec4(radianceOut, 1.0);

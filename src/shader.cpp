@@ -66,7 +66,7 @@ bool Shader::setup(const std::string vertexPath, const std::string fragmentPath,
             glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
             if(!success){
                 glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-                printf("Vertex shader compilation failed %s\n", infoLog );
+                printf("Vertex shader compilation failed at %s: %s\n", vertexPath.c_str(), infoLog );
                 return false;
             }
 
@@ -77,7 +77,7 @@ bool Shader::setup(const std::string vertexPath, const std::string fragmentPath,
             glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
             if(!success){
                 glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-                printf("Fragment shader compilation failed %s\n", infoLog );
+                printf("Fragment shader compilation failed at %s: %s\n", fragmentPath.c_str(), infoLog);
                 return false;
             }
 
